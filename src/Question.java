@@ -22,4 +22,12 @@ public class Question {
         this.category = null;
         this.subCategory = null;
     }
+
+    public Question() {
+    }
+
+
+    public void setData(String data){
+        //TODO
+    }
 }

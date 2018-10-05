@@ -1,6 +1,7 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Query {
+public class Query extends Data{
     private Service service;
     private Question question;
     private String answerType;
@@ -13,5 +14,42 @@ public class Query {
         this.answerType = answerType;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
+    }
+
+    public Query() {
+    }
+
+    @Override
+    public void setData(String[] row) throws Exception {
+        for (int i = 0; i < row.length; i++) {
+            switch (i){
+                case 1:
+                    service.setData(row[i]);
+                    break;
+                case 2:
+                    question.setData(row[i]);
+                    break;
+                case 3:
+                    answerType = row[i];
+                    break;
+                case 4:
+                    String[] dateInterval = row[i].split("-");
+
+                    dateFrom = new SimpleDateFormat("dd.MM.yyyy").parse(dateInterval[0]);
+
+                    if (dateInterval.length > 1){
+                        dateTo = new SimpleDateFormat("dd.MM.yyyy").parse(dateInterval[1]);
+                    }
+                    else {
+                        dateTo = null;
+                    }
+
+                    break;
+
+                default:
+                    throw new Exception("Wrong Query row");
+
+            }
+        }
     }
 }

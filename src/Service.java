@@ -13,4 +13,12 @@ public class Service {
         this.type = type;
         this.variation = null;
     }
+
+    public Service() {
+    }
+
+
+    public void setData(String data){
+        //TODO
+    }
 }

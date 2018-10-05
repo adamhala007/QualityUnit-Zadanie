@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Main {
 
-    static ArrayList<String> loadedInput;
-    static String dir = "./";
-    static String filename = "input.txt";
+    private static ArrayList<String> loadedInput;
+    private static String dir = "./";
+    private static String filename = "input.txt";
 
     public static void main(String[] args) {
         try {
@@ -17,10 +17,17 @@ public class Main {
             return;
         }
 
+        Analyzer analyzer = new Analyzer();
+        try {
+            analyzer.analyze(loadedInput);
+        } catch (Exception e) {
+            //TODO Exceptions
+            e.printStackTrace();
+        }
 
     }
 
-    public static void readInput() throws IOException {
+    private static void readInput() throws IOException {
         loadedInput = new ArrayList<>();
 
         Files.lines(Paths.get(dir + filename))
