@@ -4,6 +4,26 @@ import java.util.Date;
 
 public class Answer extends Data{
 
+    public Service getService() {
+        return service;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public String getAnswerType() {
+        return answerType;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Integer getWaitingTime() {
+        return waitingTime;
+    }
+
     private Service service;
     private Question question;
     private String answerType;

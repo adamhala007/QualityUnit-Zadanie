@@ -1,15 +1,15 @@
 public class Service {
 
-    private int type;
-    private Integer variation;
+    private String type;
+    private String variation;
 
 
-    public Service(int type, int variation) {
+    public Service(String type, String variation) {
         this.type = type;
         this.variation = variation;
     }
 
-    public Service(int type) {
+    public Service(String type) {
         this.type = type;
         this.variation = null;
     }
@@ -19,6 +19,10 @@ public class Service {
 
 
     public void setData(String data){
-        //TODO
+        String[] splittedData = data.split(".");
+        type = splittedData[0];
+        if (splittedData.length>1){
+            variation = splittedData[1];
+        }
     }
 }

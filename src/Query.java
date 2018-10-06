@@ -2,6 +2,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Query extends Data{
+    public Service getService() {
+        return service;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public String getAnswerType() {
+        return answerType;
+    }
+
+    public Date getDateFrom() {
+        return dateFrom;
+    }
+
+    public Date getDateTo() {
+        return dateTo;
+    }
+
     private Service service;
     private Question question;
     private String answerType;
