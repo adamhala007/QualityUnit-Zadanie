@@ -45,11 +45,9 @@ public class Answer extends Data{
 
     @Override
     public void setData(String[] row) throws Exception {
-        for (int i = 0; i < row.length; i++) {
+        for (int i = 1; i < row.length; i++) {
             switch (i){
 
-                case 0:
-                    break;
                 case 1:
                     service.setData(row[i]);
                     break;
