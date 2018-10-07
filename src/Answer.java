@@ -48,6 +48,8 @@ public class Answer extends Data{
         for (int i = 0; i < row.length; i++) {
             switch (i){
 
+                case 0:
+                    break;
                 case 1:
                     service.setData(row[i]);
                     break;
@@ -69,5 +71,43 @@ public class Answer extends Data{
 
             }
         }
+    }
+
+    public boolean matchesQuery(Query query){
+
+        if (!service.matchesService(query.getService())){
+            return false;
+        }
+
+
+        if (!question.matchesQuestion(query.getQuestion())){
+            return false;
+        }
+
+        if (!answerType.equals(query.getAnswerType())){
+            return false;
+        }
+
+        if (query.getDateFrom().after(date)){
+            return false;
+        }
+
+
+        if (query.getDateTo() != null && query.getDateTo().before(date)){
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "service=" + service +
+                ", question=" + question +
+                ", answerType='" + answerType + '\'' +
+                ", date=" + date +
+                ", waitingTime=" + waitingTime +
+                '}';
     }
 }

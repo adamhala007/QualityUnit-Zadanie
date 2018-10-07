@@ -28,7 +28,7 @@ public class Question {
 
 
     public void setData(String data){
-        String[] splittedData = data.split(".");
+        String[] splittedData = data.split("\\.");
         type = splittedData[0];
         if (splittedData.length>1){
             category = splittedData[1];
@@ -37,5 +37,36 @@ public class Question {
                 subCategory = splittedData[2];
             }
         }
+    }
+
+    public boolean matchesQuestion(Question question){
+
+        if (question.type.equals("*")){
+            return true;
+        }
+
+        if (question.type.equals(this.type)){
+            if (question.category != null){
+                if (question.category.equals(this.category)){
+                    if (question.subCategory != null){
+                        if (question.subCategory.equals(this.subCategory)){
+                            return true;
+                        }
+                    }else {
+                      return true;
+                    }
+                }
+            }else{
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Question(" + type + "." + category + "." + subCategory + ")";
     }
 }
