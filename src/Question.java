@@ -12,18 +12,15 @@ public class Question {
     }
 
     public Question(String type, String category) {
-        this.type = type;
-        this.category = category;
-        this.subCategory = null;
+        this(type, category, null);
     }
 
     public Question(String type) {
-        this.type = type;
-        this.category = null;
-        this.subCategory = null;
+        this(type, null, null);
     }
 
     public Question() {
+        this(null, null, null);
     }
 
 

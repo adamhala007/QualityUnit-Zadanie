@@ -77,4 +77,15 @@ public class Query extends Data{
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Query{" +
+                "service=" + service +
+                ", question=" + question +
+                ", answerType='" + answerType + '\'' +
+                ", dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
+                '}';
+    }
 }

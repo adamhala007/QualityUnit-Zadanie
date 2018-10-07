@@ -6,6 +6,9 @@ public class Analyzer {
     private ArrayList<String> input;
     private ArrayList<Data> dataList;
 
+    private static final String ANSWER = "C";
+    private static final String QUERY = "D";
+
     public Analyzer() {
         dataList = new ArrayList<>();
     }
@@ -25,8 +28,6 @@ public class Analyzer {
 
         readAndEvaluateQueries();
     }
-
-
 
     private boolean isEmptyInput(){
         return this.input.isEmpty();
@@ -50,9 +51,9 @@ public class Analyzer {
          String data = input.get(row);
          String[] dataArray = data.split(" ");
 
-         if (dataArray[0].equals("C")){
+         if (dataArray[0].equals(ANSWER)){
              addAnswer(dataArray);
-         }else if (dataArray[0].equals("D")){
+         }else if (dataArray[0].equals(QUERY)){
              addQuery(dataArray);
          }else {
              throw new Exception("Unknown row input");

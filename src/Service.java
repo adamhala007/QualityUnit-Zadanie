@@ -10,11 +10,11 @@ public class Service {
     }
 
     public Service(String type) {
-        this.type = type;
-        this.variation = null;
+        this(type, null);
     }
 
     public Service() {
+        this(null, null);
     }
 
 
